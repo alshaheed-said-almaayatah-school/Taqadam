@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#4f46e5">
+  <title>تقدم — اعرف وين واقف</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <!-- ============ Onboarding ============ -->
+  <section id="onboarding" class="onboarding hidden" aria-hidden="true">
+    <div class="onboarding-card" role="form" aria-labelledby="onb-title">
+      <div class="logo-badge">تقدّم</div>
+      <p class="tagline">اعرف وين واقف. واعرف شو عليك.</p>
+      <h1 id="onb-title">أهلًا بك في تقدم</h1>
+      <p class="onb-sub">خلينا نعرف وين واقف ونبدأ.</p>
+      <label for="name-input" class="field-label">اسمك</label>
+      <input id="name-input" type="text" class="field-input" placeholder="اكتب اسمك هون" autocomplete="off" maxlength="30" aria-required="true">
+      <button id="start-btn" class="btn btn-primary btn-block">ابدأ</button>
+    </div>
+  </section>
+
+  <!-- ============ App Shell ============ -->
+  <div id="app" class="app hidden">
+    <!-- Sidebar (Desktop) -->
+    <aside class="sidebar" aria-label="التنقل الرئيسي">
+      <div class="brand">
+        <div class="brand-logo">تقدّم</div>
+        <div class="brand-sub">اعرف وين واقف.</div>
+      </div>
+      <nav class="nav">
+        <button class="nav-btn" data-action="nav" data-view="dashboard"><span class="nav-ico">🏠</span><span>الرئيسية</span></button>
+        <button class="nav-btn" data-action="nav" data-view="subjects"><span class="nav-ico">📚</span><span>المواد</span></button>
+        <button class="nav-btn" data-action="nav" data-view="mistakes"><span class="nav-ico">🧠</span><span>بنك الأخطاء</span></button>
+        <button class="nav-btn" data-action="nav" data-view="stats"><span class="nav-ico">📊</span><span>الإحصائيات</span></button>
+        <button class="nav-btn" data-action="nav" data-view="settings"><span class="nav-ico">⚙️</span><span>الإعدادات</span></button>
+      </nav>
+      <div class="sidebar-foot">
+        <div id="sidebar-student" class="student-chip"></div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main" role="main">
+      <header class="topbar">
+        <h1 id="topbar-title" class="topbar-title">الرئيسية</h1>
+        <div id="topbar-streak" class="streak-chip hidden">🔥</div>
+      </header>
+      <div id="view" class="view" aria-live="polite"></div>
+    </main>
+
+    <!-- Bottom nav (Mobile) -->
+    <nav class="bottom-nav" aria-label="التنقل السفلي">
+      <button class="nav-btn" data-action="nav" data-view="dashboard"><span class="nav-ico">🏠</span><span class="nav-lbl">الرئيسية</span></button>
+      <button class="nav-btn" data-action="nav" data-view="subjects"><span class="nav-ico">📚</span><span class="nav-lbl">المواد</span></button>
+      <button class="nav-btn" data-action="nav" data-view="mistakes"><span class="nav-ico">🧠</span><span class="nav-lbl">الأخطاء</span></button>
+      <button class="nav-btn" data-action="nav" data-view="stats"><span class="nav-ico">📊</span><span class="nav-lbl">إحصائيات</span></button>
+      <button class="nav-btn" data-action="nav" data-view="settings"><span class="nav-ico">⚙️</span><span class="nav-lbl">إعدادات</span></button>
+    </nav>
+  </div>
+
+  <!-- ============ Toast container ============ -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ============ Confirm Modal ============ -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" data-action="modal-cancel"></div>
+    <div class="modal-content">
+      <h3 id="modal-title" class="modal-title"></h3>
+      <p id="modal-text" class="modal-text"></p>
+      <div class="modal-actions">
+        <button id="modal-cancel" class="btn btn-ghost" data-action="modal-cancel">إلغاء</button>
+        <button id="modal-confirm" class="btn btn-danger"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
